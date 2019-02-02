@@ -1,0 +1,126 @@
+-- Adminer 4.2.5 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE `categorie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(64) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `categorie` (`id`, `nom`, `description`) VALUES
+(1,	'salades',	'Nos bonnes salades, fraichement livrées par nos producteurs bios et locaux'),
+(2,	'crudités',	'Nos crudités variées  et préparées avec soin, issues de producteurs locaux et bio pour la plupart.'),
+(3,	'viandes',	'Nos viandes finement découpées et cuites comme vous le préférez. Viande issue d\'élevages certifiés et locaux.'),
+(4,	'Fromages',	'Nos fromages bios et au lait cru. En majorité des AOC.'),
+(5,	'Sauces',	'Toutes les sauces du monde !');
+
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE `commande` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `etat_avancement` int(11) DEFAULT NULL,
+  `date_livraison` date DEFAULT NULL,
+  `token` varchar(32) DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `id_paiement` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_commande_id_paiement` (`id_paiement`),
+  CONSTRAINT `FK_commande_id_paiement` FOREIGN KEY (`id_paiement`) REFERENCES `paiement` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `commande` (`id`, `nom`, `etat_avancement`, `date_livraison`, `token`, `updated_at`, `created_at`, `id_paiement`) VALUES
+(1,	'Commandepierre ',	1,	'2017-02-15',	'lol',	'2017-02-26 18:18:51',	'0000-00-00 00:00:00',	1),
+(2,	'Commanden2',	2,	NULL,	'14',	'2017-02-25 12:48:55',	'0000-00-00 00:00:00',	NULL);
+
+DROP TABLE IF EXISTS `compose`;
+CREATE TABLE `compose` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ingredient` int(11) NOT NULL,
+  `id_sandwich` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_compose_id_ingredient` (`id_ingredient`),
+  KEY `FK_compose_id_sandwich` (`id_sandwich`),
+  CONSTRAINT `FK_compose_id_ingredient` FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id`),
+  CONSTRAINT `FK_compose_id_sandwich` FOREIGN KEY (`id_sandwich`) REFERENCES `sandwich` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `compose` (`id`, `id_ingredient`, `id_sandwich`) VALUES
+(4,	1,	9);
+
+DROP TABLE IF EXISTS `ingredient`;
+CREATE TABLE `ingredient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_ing` varchar(64) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `description` text,
+  `fournisseur` varchar(128) DEFAULT NULL,
+  `img` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ingredient` (`id`, `nom_ing`, `cat_id`, `description`, `fournisseur`, `img`) VALUES
+(1,	'laitue',	1,	'belle laitue verte',	'ferme \"la bonne salade\"',	NULL),
+(2,	'roquette',	1,	'la roquette qui pète ! bio, bien sur, et sauvage',	'ferme \"la bonne salade\"',	NULL),
+(3,	'mâche',	1,	'une mâche toute jeune et croquante',	'ferme \"la bonne salade\"',	NULL),
+(4,	'carottes',	2,	'belles carottes bio, rapées avec amour',	'au jardin sauvage',	NULL),
+(5,	'concombre',	2,	'concombre de jardin, bio et bien frais',	'au jardin sauvage',	NULL),
+(6,	'avocat',	2,	'avocats en direct du Mexique !',	'la huerta bonita, Puebla',	NULL),
+(7,	'blanc de poulet',	3,	'blanc de poulet émincé, et grillé comme il faut',	'élevage \"le poulet volant\"',	NULL),
+(8,	'magret de canard',	3,	'magret de canard grillé, puis émincé',	'le colvert malin',	NULL),
+(9,	'steack haché',	3,	'notre steack haché saveur, 5% MG., préparé juste avant cuisson.\r\nViande de notre producteur local.',	'ferme \"la vache qui plane\"',	NULL),
+(10,	'munster',	4,	'Du munster de Munster, en direct. Pour amateurs avertis !',	'fromagerie \"le bon munster de toujours\"',	NULL),
+(11,	'chèvre frais',	4,	'un chèvre frais onctueux et goutu !',	'A la chèvre rieuse',	NULL),
+(12,	'comté AOC 18mois',	4,	'le meilleur comté du monde !',	'fromagerie du jura',	NULL),
+(13,	'vinaigrette huile d\'olive',	5,	'la vinaigrette éternelle, à l\'huile d\'olive et moutarde à l\'ancienne.',	'Le Bon Sandwich',	NULL),
+(14,	'salsa jalapeña',	5,	'sauce très légérement pimentée :-)',	'El Yucateco',	NULL),
+(15,	'salsa habanera',	5,	'Pour initiés uniquement, dangereux sinon !',	'EL yucateco',	NULL),
+(19,	'Odifdfdf',	2,	'dfdsfsdfsdfsdf',	'dfdfdf',	NULL),
+(20,	'Odifdfdf',	2,	'dfdsfscxcxdfsdfsdf',	'dfdfdf',	NULL);
+
+DROP TABLE IF EXISTS `paiement`;
+CREATE TABLE `paiement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `montant_total` decimal(25,0) DEFAULT NULL,
+  `date_paiement` date DEFAULT NULL,
+  `code_confirmation` varchar(25) DEFAULT NULL,
+  `id_commande` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_paiement_id_commande` (`id_commande`),
+  CONSTRAINT `FK_paiement_id_commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `paiement` (`id`, `montant_total`, `date_paiement`, `code_confirmation`, `id_commande`) VALUES
+(1,	15,	'2017-02-24',	'1548',	1);
+
+DROP TABLE IF EXISTS `sandwich`;
+CREATE TABLE `sandwich` (
+  `prix` int(10) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) DEFAULT NULL,
+  `id_commande` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_sandwich_id_commande` (`id_commande`),
+  CONSTRAINT `FK_sandwich_id_commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `sandwich` (`prix`, `id`, `nom`, `id_commande`) VALUES
+(0,	9,	'cooc',	1),
+(0,	10,	'monsandwuhc',	1),
+(0,	11,	'monsandwuhc',	1),
+(0,	12,	'monsandwuhc',	1),
+(0,	13,	'monsandwuhc',	1),
+(0,	14,	'monsandwuhc',	1),
+(0,	15,	'monsandwuhc',	1),
+(0,	16,	'monsandwuhc',	1),
+(0,	17,	'monsandwuhc',	1),
+(0,	18,	'monsandwuhc',	1),
+(0,	19,	'monsandwuhc',	1);
+
+-- 2017-02-27 11:50:27

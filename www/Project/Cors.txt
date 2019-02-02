@@ -1,0 +1,21 @@
+/*
+
+
+
+
+Autorisier les requetes X-domain : 
+
+
+-> cors  
+
+
+
+Simple cors :
+
+GET -> client fait une requete 
+		origin : domain 
+POST -> client fait une requete
+
+
+Header  <-   
+HTPP 			Acces-control-allow-origin:  

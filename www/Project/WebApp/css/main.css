@@ -1,0 +1,154 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+.title {
+  font-size: 3em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+#Party {
+  margin-top: 8em;
+  opacity: 1;
+  position: relative; }
+
+.msgAccueil {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+#pseudo:focus {
+  border-bottom: 1px solid #2196f3;
+  box-shadow: 0 1px 0 0 #2196f3; }
+
+.addParty {
+  margin-bottom: 2em; }
+
+.reglement {
+  margin-top: 2em; }
+
+.ng-scope {
+  text-decoration-color: black; }
+
+.path {
+  line-height: 1em;
+  border: 1px solid #bf360c;
+  border-radius: 5px; }
+
+.paths {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+.indices {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+.indice {
+  line-height: 1em;
+  border: 1px solid #bf360c;
+  border-radius: 5px; }
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 45%;
+  left: 36%; }
+
+@media screen and (min-width: 590px) and (max-width: 1280px) {
+  #toast-container {
+    left: 15%;
+    bottom: 10%; } }
+@media screen and (max-width: 590px) {
+  #toast-container {
+    bottom: 0;
+    left: 0;
+    text-align: center; } }
+#formCo {
+  width: 30%;
+  margin-top: 2em;
+  margin-left: 35%; }
+
+#form {
+  width: 60%;
+  margin-top: 5em;
+  margin-left: 20%; }
+  #form h5 {
+    font-size: 0.6em; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset='utf-8'>
+		<title>Backend</title>
+	</head>
+
+	
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+	<script src="lib/jquery-3.1.1.min.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	<link rel="stylesheet" href="css/main.css" />
+
+	<script type="text/javascript" src="js/bin/materialize.min.js"></script>
+
+	<script src="lib/angular.min.js"></script>
+	
+	<script src="app/app.js"></script>
+	<script src="app/controllers/connexion_controller.js"></script>
+	<script src="app/controllers/accueil_controller.js"></script>
+	
+
+	<body ng-app='backend' class="grey darken-4 ">
+
+		<div class="col s10 m8 l6 center-align title blue-grey-text text-lighten-4"><h2>BACKEND LE BON SANDWICH</h2></div>
+
+
+		
+		
+			<div ng-controller='ConnexionController' id="formCo" class="card-panel grey darken-3">
+				<form name='form' novalidate>
+					<div class="input-field col l2 offset-l5 m6 offset-m3 s8 offset-s2">
+						<input type="text" ng-model="user.pseudo" name="pseudo" id="pseudo" class="blue-grey-text text-lighten-4" required>
+						<label class="blue-text text-darken-1">Entrez votre pseudo</label>
+					</div>
+					<div class="input-field col l2 offset-l5 m6 offset-m3 s8 offset-s2">
+						<input type="password" ng-model="user.mdp" id="pseudo" class="blue-grey-text text-lighten-4" required>
+						<label class="blue-text text-darken-1">Entrez votre mot de passe</label>
+					</div>
+					<div class="col s8 m6 l2 offset-l5 offset-m3 offset-s2 center-align">
+						<input type="submit" ng-click="testCo()" class="waves-effect wave-light blue darken-3 addParty btn" value="CONNEXION">
+					</div>
+				</form>
+			</div>
+		
+		
+
+
+
+
+	<script type="text/javascript" src="js/bin/materialize.min.js"></script>
+
+	</body>
+</html>
+		
+	

@@ -1,0 +1,17 @@
+{
+  "name": "project",
+  "require" : {
+    "slim/slim":"3.*",
+    "illuminate/database": "5.0.*",
+    "php": ">=5.4",
+    "ircmaxell/random-lib": "^1.2"
+  },
+
+  "autoload" : {
+    "psr-0": {
+      "sandwich\\": "src",
+      "controllers\\":"API"
+    }
+  }
+
+}

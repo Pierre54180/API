@@ -1,0 +1,103 @@
+@import "reset";
+
+body{
+
+}
+
+.title{
+	font-size: 3em;
+	margin-top: 0.5em;
+	margin-bottom:0.5em;
+}
+
+#Party{
+	margin-top:8em;
+	opacity:1;
+	position: relative;
+}
+
+.msgAccueil{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#pseudo:focus{
+    border-bottom: 1px solid #bf360c;
+    box-shadow: 0 1px 0 0 #bf360c;
+  }
+
+.addParty{
+	margin-bottom: 2em;
+}
+
+.reglement{
+	margin-top: 2em;
+}
+
+.ng-scope{
+	text-decoration-color: black;
+}
+
+.path{
+	line-height: 1em;
+	border: 1px solid #bf360c;
+	border-radius: 5px;
+}
+
+.paths{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.indices{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.indice{
+	line-height: 1em;
+	border: 1px solid #bf360c;
+	border-radius: 5px;
+}
+
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 45%;
+  left:36%;
+}
+
+
+@media screen and (min-width: 590px) and (max-width: 1280px) {
+	#toast-container{
+		left:15%;
+		bottom: 10%;
+	}
+}
+
+@media screen and (max-width: 590px) {
+  #toast-container {
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+}
+
+#formCo{
+	width: 30%;
+	margin-top: 2em;
+	margin-left:35%;
+}
+
+
+#form{
+	width: 60%;
+	margin-top: 5em;
+	margin-left:20%;
+
+	h5{
+		font-size:0.6em;
+	}
+}
+

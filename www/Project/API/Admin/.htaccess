@@ -1,0 +1,5 @@
+AuthName "Accès protégé"
+AuthType Basic 
+AuthUserFile "/var/www/Project/API/Admin/.htpasswd"
+Require valid-user
+

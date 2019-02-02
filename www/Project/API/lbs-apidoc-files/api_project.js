@@ -1,0 +1,1 @@
+define({  "name": "Le Bon Sandwich : api pour appli cliente",  "version": "0.1.0",  "description": "api pour la commande de sandwichs chez Le Bon Sandwich",  "title": "lbs : api",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-11-14T14:54:41.006Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
